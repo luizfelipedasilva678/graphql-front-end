@@ -1,2 +1,2 @@
-# graphql-front-end
+# GraphQl Front-end
 GraphQl on the front-end
