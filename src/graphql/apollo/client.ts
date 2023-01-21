@@ -1,6 +1,7 @@
 import { ApolloClient, InMemoryCache } from '@apollo/client';
+import { httpLink } from '../links/httpLink';
 
 export const apolloClient = new ApolloClient({
-  uri: `${import.meta.env.VITE_API_URL as string}`,
+  link: httpLink,
   cache: new InMemoryCache(),
 });

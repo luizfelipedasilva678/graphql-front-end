@@ -1,0 +1,70 @@
+@import url('../../styles/variables.css');
+
+.menu {
+  height: 100%;
+  width: 30rem;
+  transition: 1s;
+  position: fixed;
+  background: var(--white);
+  top: 0;
+  z-index: 2;
+  box-shadow: 3px 3px 14px -4px rgba(0, 0, 0, 0.75);
+}
+
+.menu--open {
+  left: 0;
+}
+
+.menu--close {
+  left: -500px;
+}
+
+.menu__btn {
+  z-index: 1;
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+  cursor: pointer;
+  background: var(--primary);
+  border: none;
+  border-radius: 0.3rem;
+  padding: 0.6rem;
+}
+
+.menu__close-btn {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  cursor: pointer;
+  background: var(--primary);
+  border: none;
+  padding: 0.6rem;
+  border-radius: 50%;
+  color: var(--white);
+}
+
+.menu__ul {
+  list-style: none;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.menu__li {
+  margin-bottom: 1rem;
+}
+
+.menu__ul .menu__li .menu__link {
+  text-decoration: none;
+  color: var(--black);
+  font-size: 2rem;
+}
+
+.menu__nav {
+  padding: 1rem;
+  height: 100%;
+}
