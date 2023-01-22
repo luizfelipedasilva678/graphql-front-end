@@ -1,5 +1,5 @@
 import { useMutation } from '@apollo/client';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { GQL_LOGIN } from '../../graphql/mutations/auth';
 import './index.css';
@@ -72,6 +72,10 @@ const Login = () => {
         />
         <input className="login__submit-btn" type="submit" value="Enter" />
       </form>
+
+      <Link className="create-account-btn" to={'/create-account'}>
+        Create your account
+      </Link>
     </section>
   );
 };
