@@ -26,7 +26,6 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
         pauseOnHover
         theme="light"
       />
-      <ToastContainer />
     </ApolloProvider>
   </React.StrictMode>
 );

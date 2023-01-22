@@ -2,11 +2,12 @@ import { useMutation } from '@apollo/client';
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { GQL_LOGIN } from '../../graphql/mutations/auth';
+import Loading from '../Loading';
 import './index.css';
 import schema from './validation/validation';
 
 const Login = () => {
-  const [login] = useMutation(GQL_LOGIN);
+  const [login, { loading }] = useMutation(GQL_LOGIN);
   const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -54,6 +55,8 @@ const Login = () => {
       }
     }
   };
+
+  if (loading) return <Loading />;
 
   return (
     <section className="login">
