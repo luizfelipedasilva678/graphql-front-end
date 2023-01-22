@@ -3,7 +3,7 @@
 .menu {
   height: 100%;
   width: 30rem;
-  transition: 1s;
+  transition: 0.5s;
   position: fixed;
   background: var(--white);
   top: 0;
