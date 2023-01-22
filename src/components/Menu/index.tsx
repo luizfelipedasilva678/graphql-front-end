@@ -2,7 +2,7 @@ import { Fragment, useState } from 'react';
 import { AiOutlineMenu } from 'react-icons/ai';
 import { IoMdClose } from 'react-icons/io';
 import { Link } from 'react-router-dom';
-import './index.css';
+import '../../styles/Menu/index.css';
 
 const Menu = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);

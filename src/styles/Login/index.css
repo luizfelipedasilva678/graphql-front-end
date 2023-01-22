@@ -1,6 +1,6 @@
-@import url('../../styles/variables.css');
+@import url('../variables.css');
 
-.create-account {
+.login {
   width: 30rem;
   background: var(--white);
   padding: 3rem;
@@ -8,17 +8,18 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   border-radius: 1rem;
   box-shadow: 2px 2px 14px 3px rgba(0, 0, 0, 0.75);
 }
 
-.create-account__form {
+.login__form {
   display: flex;
   flex-direction: column;
   width: 100%;
 }
 
-.create-account__input {
+.login__input {
   border-radius: 0.5rem;
   border: solid 0.1rem var(--black);
   height: 3rem;
@@ -30,7 +31,7 @@
   box-sizing: border-box;
 }
 
-.create-account__submit-btn {
+.login__submit-btn {
   background: var(--primary);
   color: var(--white);
   font-size: 1.6rem;
@@ -39,4 +40,12 @@
   border-radius: 0.5rem;
   border: none;
   cursor: pointer;
+}
+
+.create-account-btn {
+  width: 100%;
+  margin-top: 2rem;
+  text-decoration: none;
+  color: var(--black);
+  font-size: 1.4rem;
 }

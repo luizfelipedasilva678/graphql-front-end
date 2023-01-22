@@ -2,8 +2,8 @@ import { useMutation } from '@apollo/client';
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { GQL_LOGIN } from '../../graphql/mutations/auth';
+import '../../styles/Login/index.css';
 import Loading from '../Loading';
-import './index.css';
 import schema from './validation/validation';
 
 const Login = () => {

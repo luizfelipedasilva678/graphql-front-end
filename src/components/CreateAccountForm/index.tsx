@@ -2,8 +2,8 @@ import { useMutation } from '@apollo/client';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { GQL_CREATE_USER } from '../../graphql/mutations/create-user';
+import '../../styles/CreateAccountForm/index.css';
 import Loading from '../Loading';
-import './index.css';
 import schema from './validation/validation';
 
 const CreateAccountForm = () => {

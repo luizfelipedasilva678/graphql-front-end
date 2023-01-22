@@ -1,5 +1,5 @@
+import '../../styles/Loading/index.css';
 import spinner from './assets/imgs/spinner.gif';
-import './index.css';
 
 const Loading = () => {
   return (
