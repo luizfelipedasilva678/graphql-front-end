@@ -1,8 +1,9 @@
 import { makeVar } from '@apollo/client';
 
-const initialValue = {
+export const initialValue = {
   isLoggedIn: false,
   userId: '',
+  userName: '',
 };
 
 const userInfosFn = makeVar(initialValue);

@@ -1,11 +1,43 @@
+import { useMutation } from '@apollo/client';
 import { Fragment, useState } from 'react';
 import { AiOutlineMenu } from 'react-icons/ai';
 import { IoMdClose } from 'react-icons/io';
 import { Link } from 'react-router-dom';
+import { GQL_LOGOUT } from '../../graphql/mutations/logout';
+import { useUserInfos } from '../../hooks/useUserInfos';
 import '../../styles/Menu/index.css';
+import Loading from '../Loading';
 
 const Menu = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const { getUserInfo, resetUserInfo } = useUserInfos();
+  const { isLoggedIn, userName } = getUserInfo();
+  const [logout, { loading }] = useMutation(GQL_LOGOUT, {
+    onError: () => {},
+    onCompleted: () => {
+      resetUserInfo();
+    },
+  });
+
+  const handleLogout = async (
+    e: React.MouseEvent<HTMLAnchorElement, MouseEvent>
+  ) => {
+    e.preventDefault();
+
+    try {
+      await logout({
+        variables: {
+          userName,
+        },
+      });
+    } catch (error) {
+      console.error({
+        type: 'Logout error',
+      });
+    }
+  };
+
+  if (loading) return <Loading />;
 
   return (
     <Fragment>
@@ -39,16 +71,33 @@ const Menu = () => {
                 Posts
               </Link>
             </li>
-            <li className="menu__li">
-              <Link className="menu__link" to="/my-posts">
-                My posts
-              </Link>
-            </li>
-            <li className="menu__li">
-              <Link className="menu__link" to="/login">
-                Login
-              </Link>
-            </li>
+            {isLoggedIn ? (
+              <li className="menu__li">
+                <Link className="menu__link" to="/my-posts">
+                  My posts
+                </Link>
+              </li>
+            ) : (
+              <></>
+            )}
+            {!isLoggedIn ? (
+              <li className="menu__li">
+                <Link className="menu__link" to="/login">
+                  Login
+                </Link>
+              </li>
+            ) : (
+              <></>
+            )}
+            {isLoggedIn ? (
+              <li className="menu__li">
+                <a className="menu__link" href="#" onClick={handleLogout}>
+                  Logout
+                </a>
+              </li>
+            ) : (
+              <></>
+            )}
           </ul>
         </nav>
       </div>

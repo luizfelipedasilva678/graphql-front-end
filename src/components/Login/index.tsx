@@ -2,13 +2,23 @@ import { useMutation } from '@apollo/client';
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { GQL_LOGIN } from '../../graphql/mutations/auth';
+import { useUserInfos } from '../../hooks/useUserInfos';
 import '../../styles/Login/index.css';
+import { TLogin } from '../../types/login';
 import Loading from '../Loading';
 import schema from './validation/validation';
 
 const Login = () => {
-  const [login, { loading }] = useMutation(GQL_LOGIN);
+  const { setUserInfo } = useUserInfos();
   const navigate = useNavigate();
+  const [login, { loading }] = useMutation(GQL_LOGIN, {
+    onCompleted: (data: TLogin) => {
+      const {
+        login: { userId, username },
+      } = data;
+      setUserInfo({ userId, isLoggedIn: true, userName: username });
+    },
+  });
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
