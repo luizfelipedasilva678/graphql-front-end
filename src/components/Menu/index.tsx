@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import { GQL_LOGOUT } from '../../graphql/mutations/logout';
 import { useUserInfos } from '../../hooks/useUserInfos';
 import '../../styles/Menu/index.css';
+import { removeFromLocalStorage } from '../../utils/localStorage';
 import Loading from '../Loading';
 
 const Menu = () => {
@@ -16,6 +17,7 @@ const Menu = () => {
     onError: () => {},
     onCompleted: () => {
       resetUserInfo();
+      removeFromLocalStorage('__auth_data__');
     },
   });
 

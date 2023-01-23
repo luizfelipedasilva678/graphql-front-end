@@ -5,6 +5,7 @@ import { GQL_LOGIN } from '../../graphql/mutations/auth';
 import { useUserInfos } from '../../hooks/useUserInfos';
 import '../../styles/Login/index.css';
 import { TLogin } from '../../types/login';
+import { setLocalStorage } from '../../utils/localStorage';
 import Loading from '../Loading';
 import schema from './validation/validation';
 
@@ -16,7 +17,10 @@ const Login = () => {
       const {
         login: { userId, username },
       } = data;
-      setUserInfo({ userId, isLoggedIn: true, userName: username });
+      const userInfos = { userId, isLoggedIn: true, userName: username };
+
+      setUserInfo(userInfos);
+      setLocalStorage('__auth_data__', userInfos);
     },
   });
 
