@@ -1,0 +1,22 @@
+@import url('../variables.css');
+
+.post-card {
+  max-width: 67rem;
+  display: flex;
+  flex-direction: column;
+  margin: 1rem 0;
+}
+
+.post-card__title {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+.post-card__body {
+  color: var(--black);
+  max-width: 67rem;
+  font-size: 1.4rem;
+  text-overflow: ellipsis;
+}
