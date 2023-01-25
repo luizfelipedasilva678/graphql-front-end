@@ -45,6 +45,7 @@
   color: var(--black);
   font-size: 1.4rem;
   line-height: 2rem;
+  overflow: hidden;
   text-overflow: ellipsis;
 }
 

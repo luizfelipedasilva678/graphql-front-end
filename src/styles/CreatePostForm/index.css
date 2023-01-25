@@ -1,6 +1,6 @@
 @import url('../variables.css');
 
-.create-account {
+.create-post {
   width: 30rem;
   background: var(--white);
   padding: 3rem;
@@ -12,13 +12,24 @@
   box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
 }
 
-.create-account__form {
+.create-post__form {
   display: flex;
   flex-direction: column;
   width: 100%;
 }
 
-.create-account__input {
+.create-post__submit-btn {
+  background: var(--primary);
+  color: var(--white);
+  font-size: 1.6rem;
+  padding: 0.5rem;
+  height: 3rem;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+}
+
+.create-post__input {
   border-radius: 0.5rem;
   border: solid 0.1rem var(--black);
   height: 3rem;
@@ -30,19 +41,13 @@
   box-sizing: border-box;
 }
 
-.create-account__submit-btn {
-  background: var(--primary);
-  color: var(--white);
-  font-size: 1.6rem;
-  padding: 0.5rem;
-  height: 3rem;
-  border-radius: 0.5rem;
-  border: none;
-  cursor: pointer;
+.create-post__textarea {
+  resize: vertical;
+  height: 15em;
 }
 
 @media (max-width: 1026px) {
-  .create-account {
+  .create-post {
     width: 27rem;
   }
 }

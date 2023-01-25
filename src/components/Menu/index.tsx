@@ -70,8 +70,8 @@ const Menu = () => {
             </li>
             {isLoggedIn ? (
               <li className="menu__li">
-                <Link className="menu__link" to="/my-posts">
-                  My posts
+                <Link className="menu__link" to="/create-post">
+                  Create Post
                 </Link>
               </li>
             ) : (
