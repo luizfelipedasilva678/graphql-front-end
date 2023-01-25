@@ -16,6 +16,11 @@
   border-radius: 0.8rem;
 }
 
+.post-card__link {
+  width: 100%;
+  text-decoration: none;
+}
+
 .post-card::before {
   content: '';
   position: absolute;
@@ -46,10 +51,15 @@
 .post-card__author {
   font-size: 1.4rem;
   margin-top: 1em;
+  color: var(--black);
 }
 
 @media (max-width: 1026px) {
   .post-card {
+    width: 83%;
+  }
+
+  .post-card__link {
     width: 83%;
   }
 }

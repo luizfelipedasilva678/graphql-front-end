@@ -61,9 +61,7 @@ const Posts = () => {
     toast.error('Ops there was an error =(');
   }
 
-  if (loading) return <Loading />;
-
-  if (data === undefined) return <></>;
+  if (loading || data === undefined) return <Loading />;
 
   return (
     <section className="posts">

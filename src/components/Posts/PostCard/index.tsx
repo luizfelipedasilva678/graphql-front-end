@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import '../../../styles/PostCard/index.css';
 import { PostCardProps } from '../../../types/postCardProps';
 
@@ -14,11 +15,13 @@ const PostCard = ({ post }: PostCardProps) => {
     bodyLength > maxLength ? `${body.slice(0, maxLength)}...` : body;
 
   return (
-    <div className="post-card">
-      <h2 className="post-card__title"> {title} </h2>
-      <p className="post-card__body"> {postBody} </p>
-      <p className="post-card__author"> {username} </p>
-    </div>
+    <Link className="post-card__link" to={`/post/${post.id}`}>
+      <div className="post-card">
+        <h2 className="post-card__title"> {title} </h2>
+        <p className="post-card__body"> {postBody} </p>
+        <p className="post-card__author"> {username} </p>
+      </div>
+    </Link>
   );
 };
 
