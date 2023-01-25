@@ -1,10 +1,50 @@
+@import url('../variables.css');
+
 .posts {
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: auto;
   max-height: 70vh;
-  overflow-y: auto;
   justify-content: center;
+}
+
+.posts__pagination-btn {
+  background: var(--primary);
+  border: none;
+  color: var(--white);
+  padding: 1em;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  margin-top: 1em;
+}
+
+.posts__btns-wrapper {
+  display: flex;
+  justify-content: center;
+  flex-direction: row-reverse;
+  gap: 1rem;
+}
+
+.posts__title {
+  font-size: 3rem;
+  width: 100%;
+}
+
+.posts__page {
+  font-size: 1.8em;
+  white-space: nowrap;
+}
+
+.posts__header {
+  width: 100%;
+  margin-bottom: 1em;
+  display: flex;
+  justify-content: space-between;
+}
+
+@media (max-width: 1026px) {
+  .posts {
+    width: 83%;
+  }
 }

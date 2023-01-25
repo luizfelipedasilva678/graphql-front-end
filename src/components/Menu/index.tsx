@@ -68,11 +68,6 @@ const Menu = () => {
                 Home
               </Link>
             </li>
-            <li className="menu__li">
-              <Link className="menu__link" to="/posts">
-                Posts
-              </Link>
-            </li>
             {isLoggedIn ? (
               <li className="menu__li">
                 <Link className="menu__link" to="/my-posts">

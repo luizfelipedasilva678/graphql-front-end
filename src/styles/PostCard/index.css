@@ -1,10 +1,32 @@
 @import url('../variables.css');
 
 .post-card {
-  max-width: 67rem;
   display: flex;
   flex-direction: column;
   margin: 1rem 0;
+  background: var(--white);
+  box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  padding: 1rem;
+  position: relative;
+
+  background-clip: padding-box;
+
+  border: solid 2px transparent;
+  border-radius: 0.8rem;
+}
+
+.post-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  margin: -2px;
+  border-radius: inherit;
+  background: linear-gradient(to left, rgb(64, 88, 224), rgb(47, 120, 255));
 }
 
 .post-card__title {
@@ -16,7 +38,18 @@
 
 .post-card__body {
   color: var(--black);
-  max-width: 67rem;
   font-size: 1.4rem;
+  line-height: 2rem;
   text-overflow: ellipsis;
+}
+
+.post-card__author {
+  font-size: 1.4rem;
+  margin-top: 1em;
+}
+
+@media (max-width: 1026px) {
+  .post-card {
+    width: 83%;
+  }
 }
