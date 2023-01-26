@@ -1,11 +1,21 @@
-import { useMutation } from '@apollo/client';
+import { useMutation, useQuery } from '@apollo/client';
+import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { GQL_CREATE_POST } from '../../graphql/mutations/create-post';
+import { GQL_UPDATE_POST } from '../../graphql/mutations/update-post';
+import { GQL_GET_POST } from '../../graphql/queries/get-post';
 import '../../styles/CreatePostForm/index.css';
-import schema from './validation/validation';
+import { IndividualPost } from '../../types/individual-post';
+import schema from '../CreatePostForm/validation/validation';
+import Loading from '../Loading';
 
-const CreatePostForm = () => {
-  const [createPost] = useMutation(GQL_CREATE_POST);
+const UpdatePostForm = () => {
+  const [updatedPost] = useMutation(GQL_UPDATE_POST);
+  const { postId } = useParams();
+  const { data, loading } = useQuery<IndividualPost>(GQL_GET_POST, {
+    variables: {
+      id: postId,
+    },
+  });
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -28,8 +38,9 @@ const CreatePostForm = () => {
 
       const { titlepost, body } = validationResult;
 
-      await createPost({
+      await updatedPost({
         variables: {
+          id: postId,
           data: {
             title: titlepost,
             body,
@@ -37,7 +48,7 @@ const CreatePostForm = () => {
         },
       });
 
-      toast.success('Your post has been successfully created!');
+      toast.success('Your post has been successfully updated!');
     } catch (err: any) {
       const error = err;
       const errorMessage = error?.message;
@@ -54,6 +65,12 @@ const CreatePostForm = () => {
     }
   };
 
+  if (loading || data === undefined) return <Loading />;
+
+  const {
+    post: { title, body },
+  } = data;
+
   return (
     <section className="create-post">
       <form onSubmit={handleSubmit} className="create-post__form">
@@ -62,20 +79,22 @@ const CreatePostForm = () => {
           type="text"
           name="titlepost"
           placeholder="Title"
+          defaultValue={title}
         />
         <textarea
           className="create-post__input create-post__textarea"
           name="body"
           placeholder="Body"
+          defaultValue={body}
         ></textarea>
         <input
           className="create-post__submit-btn"
           type="submit"
-          value="Create Post"
+          value="Updated Post"
         />
       </form>
     </section>
   );
 };
 
-export default CreatePostForm;
+export default UpdatePostForm;

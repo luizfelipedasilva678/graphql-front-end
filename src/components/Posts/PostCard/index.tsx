@@ -41,9 +41,9 @@ const PostCard = ({ post }: PostCardProps) => {
           >
             <MdDelete size={20} color={'#cf2e3e'} />
           </button>
-          <button className="post-card__edit-btn">
+          <Link className="post-card__edit-btn" to={`edit/${id}`}>
             <MdEdit size={20} color={'#2e6dd8'} />
-          </button>
+          </Link>
         </div>
       ) : (
         <></>
