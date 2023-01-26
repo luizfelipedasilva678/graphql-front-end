@@ -1,3 +1,3 @@
 # GraphQl Front-end
 
-GraphQl on the front-end
+Project developed to training graphql on front-end
