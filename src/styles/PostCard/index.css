@@ -17,8 +17,10 @@
 }
 
 .post-card__link {
-  width: 100%;
-  text-decoration: none;
+  text-decoration: underline;
+  color: var(--primary);
+  font-size: 1.4em;
+  margin-top: 1em;
 }
 
 .post-card::before {
@@ -59,8 +61,16 @@
   .post-card {
     width: 83%;
   }
+}
 
-  .post-card__link {
-    width: 83%;
-  }
+.post-card__actions {
+  position: absolute;
+  right: 13px;
+}
+
+.post-card__edit-btn,
+.post-card__delete-btn {
+  background: transparent;
+  cursor: pointer;
+  border: none;
 }
